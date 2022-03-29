@@ -1,0 +1,12 @@
+.favorite {
+    padding-top: 110px;
+}
+
+.favorite__title {
+    font-family: 'SF UI Display';
+    font-size: 72px;
+    line-height: 86px;
+    margin: 0 0 71px 0;
+    text-align: center;
+    color: #000000;
+}

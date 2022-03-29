@@ -1,0 +1,12 @@
+.history {
+    padding-top: 110px;
+}
+
+.history__title {
+    font-family: 'SF UI Display';
+    font-size: 72px;
+    line-height: 86px;
+    margin: 0 0 71px 0;
+    text-align: center;
+    color: #000000;
+}
