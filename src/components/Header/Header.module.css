@@ -1,0 +1,45 @@
+.header {
+    background-color: #000000;
+    padding-top: 53px;
+}
+
+.mainNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mainNav__logo {
+    display: flex;
+}
+
+.mainNav__logo a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.mainNav__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+.mainNav__item:not(:last-child) {
+    margin-right: 20px;
+}
+
+.mainNav__link {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.mainNav__link svg {
+    margin-right: 10px;
+}

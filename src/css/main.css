@@ -1,0 +1,57 @@
+@font-face {
+    font-family: "SF UI Display";
+    src: url("../fonts/sf-ui-display/sf-ui-display-light.otf");
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SF UI Display";
+    src: url("../fonts/sf-ui-display/sf-ui-display-bold.otf");
+    font-display: swap;
+    font-weight: 700;
+}
+
+*,
+*::before,
+*::after {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+    display: block;
+}
+
+body {
+    margin: 0;
+    font-family: 'SF UI Display', 'Arial', sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1538px;
+    padding: 0 30px;
+    margin: 0 auto;
+}
