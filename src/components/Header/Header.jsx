@@ -1,8 +1,23 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import classes from './Header.module.css'
-import {NavLink} from "react-router-dom";
+import {NavLink, useLocation} from "react-router-dom";
 
 const Header = () => {
+    const route = useLocation();
+    const [isShowSearchButton, setIsShowSearchButton] = useState(true)
+
+    useEffect(() => {
+        if (
+            route.pathname.includes("photo") ||
+            route.pathname.includes("favorites") ||
+            route.pathname.includes("history")
+        ) {
+            setIsShowSearchButton(true)
+        } else {
+            setIsShowSearchButton(false)
+        }
+    }, [route.pathname]);
+
     return (
         <header className={classes.header}>
             <div className="container">

@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import classes from './Search.module.css'
+import Output from "../Output/Output";
+import {Context} from "../../server/state";
 
 const Search = () => {
     const tags = [
@@ -15,19 +17,25 @@ const Search = () => {
         {text: 'Fashion', link: '#'},
     ]
 
+    const context = useContext(Context);
+    const [loadingMore, setLoadingMore] = useState(false);
+
     return (
-        <section className={classes.search}>
-            <h2 className={classes.search__title}>Поиск</h2>
-            <ul className={classes.search__tags}>
-                {
-                    tags.map((el, index) => {
-                        return  <li className={classes.search__item} key={index}>
-                            <a href={el.link} className={classes.search__link}>{el.text}</a>
-                        </li>
-                    })
-                }
-            </ul>
-        </section>
+        <div>
+            <section className={classes.search}>
+                <h2 className={classes.search__title}>Поиск</h2>
+                <ul className={classes.search__tags}>
+                    {
+                        tags.map((el, index) => {
+                            return  <li className={classes.search__item} key={index}>
+                                <a href={el.link} className={classes.search__link}>{el.text}</a>
+                            </li>
+                        })
+                    }
+                </ul>
+            </section>
+            <Output />
+        </div>
     );
 };
 
