@@ -1,0 +1,36 @@
+.search {
+    background-color: #000000;
+    padding-bottom: 90px;
+}
+
+.search__title {
+    font-family: 'SF UI Display';
+    font-size: 72px;
+    line-height: 86px;
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0 0 14px 0;
+    text-align: center;
+}
+
+.search__tags {
+    display: flex;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    max-width: 80%;
+    padding-top: 30px;
+    border-top: 1px solid #ffffff;
+}
+
+.search__item:not(:last-child) {
+    margin-right: 15px;
+}
+
+.search__link {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'SF UI Display';
+    font-size: 18px;
+    line-height: 21px;
+}
