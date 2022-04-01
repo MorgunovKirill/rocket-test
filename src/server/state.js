@@ -23,9 +23,8 @@ const AppStateProvider = ({ children }) => {
 
     const fetchData = async () => {
         setLoading(true);
-        const imagesData = await unsplash.photos.listPhotos(1, 25);
-        const json = await imagesData.json();
-        setPosts(json);
+        const imagesData = await unsplash.photos.list(1, 25);
+        setPosts(imagesData.response.results);
         setAdditionalPosts([]);
         setTimeout(() => {
             setLoading(false);
@@ -33,9 +32,8 @@ const AppStateProvider = ({ children }) => {
     };
 
     const fetchAdditionalPosts = async () => {
-        const additionalImagesData = await unsplash.photos.listPhotos(page, 25);
-        const json = await additionalImagesData.json();
-        setAdditionalPosts([...additionalPosts, json]);
+        const additionalImagesData = await unsplash.photos.list(page, 25);
+        setAdditionalPosts([...additionalPosts, additionalImagesData.response.results]);
         setPage((page) => page + 1);
     };
 
@@ -43,21 +41,20 @@ const AppStateProvider = ({ children }) => {
         setAdditionalPosts([]);
     };
     const fetchCollections = async () => {
-        const collectionsData = await unsplash.collections.listCollections(
+        const collectionsData = await unsplash.collections.list(
             1,
             10,
             "popular"
         );
-        const collectionsJson = await collectionsData.json();
-        setCollections(collectionsJson);
+
+        setCollections(collectionsData.response.results);
     };
 
     const fetchPhotosFromSearchRequest = async (searchQuery) => {
         setLoading(true);
         setCurrentSearchQuery(searchQuery);
-        const imagesData = await unsplash.search.photos(searchQuery, 1, 25);
-        const imagesJson = await imagesData.json();
-        setPosts(imagesJson.results);
+        const imagesData = await unsplash.search.getPhotos(searchQuery, 1, 25);
+        setPosts(imagesData.response.results);
         setTimeout(() => {
             setLoading(false);
         }, 500);
@@ -66,24 +63,22 @@ const AppStateProvider = ({ children }) => {
 
     const fetchAdditionalFromSearchRequest = async () => {
         setLoading(true);
-        const imagesData = await unsplash.search.photos(
+        const imagesData = await unsplash.search.getPhotos(
             currentSearchQuery,
             page,
             25
         );
-        const imagesJson = await imagesData.json();
-        setAdditionalPosts([...additionalPosts, imagesJson.results]);
+        setAdditionalPosts([...additionalPosts, imagesData.response.results]);
         setPage((page) => page + 1);
     };
 
     const getCollectionPhotos = async (collectionId) => {
-        const photosData = await unsplash.collections.getCollectionPhotos(
+        const photosData = await unsplash.collections.getPhotos(
             collectionId,
             1,
             24
         );
-        const photosJson = await photosData.json();
-        setPosts(photosJson);
+        setPosts(photosData.response.results);
     };
 
     const addPhotoToFavorites = (post) => {
@@ -95,9 +90,8 @@ const AppStateProvider = ({ children }) => {
     };
 
     const getPhotoDetails = async (id) => {
-        const photoDetailsData = await unsplash.photos.getPhoto(id);
-        const photoDetailsJson = await photoDetailsData.json();
-        setSelectedPost(photoDetailsJson);
+        const photoDetailsData = await unsplash.photos.get(id);
+        setSelectedPost(photoDetailsData.response.results);
     };
 
     const resetPageCount = () => {
